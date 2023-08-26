@@ -1,11 +1,16 @@
 package com.driver.services.impl;
 
+import com.driver.model.Country;
+import com.driver.model.User;
 import com.driver.repository.CountryRepository;
 import com.driver.repository.ServiceProviderRepository;
 import com.driver.repository.UserRepository;
 import com.driver.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,10 +25,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User register(String username, String password, String countryName) throws Exception{
 
+        User user = new User();
+        user.setPassword(password);
+        user.setUserName(username);
+
+        Country country = new Country();
+        country.setCompanyName(countryName);
+
+        user.setCountry(country);
+        userRepository3.save(user);
+        return user;
     }
 
     @Override
     public User subscribe(Integer userId, Integer serviceProviderId) {
-
+         return null;
     }
 }

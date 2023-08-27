@@ -15,17 +15,18 @@ public class User {
     private String maskedIp;
     private boolean connected;
 
-    @OneToMany(mappedBy = "Connection",cascade = CascadeType.ALL)
-    List<Connection> connectionList;
+    @OneToMany(mappedBy = "User",cascade = CascadeType.ALL)
+    private List<Connection> connectionList;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "serviceProvider")
-    List<ServiceProvider> serviceProviderList;
+    private List<ServiceProvider> serviceProviderList;
 
-    @OneToOne
-    @JoinColumn(name = "country")
-    Country country;
+    @OneToOne(mappedBy = "User",cascade = CascadeType.ALL)
+    private Country country;
+     public User(){
 
+     }
     public Integer getId() {
         return id;
     }

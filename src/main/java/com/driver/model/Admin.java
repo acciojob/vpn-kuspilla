@@ -13,9 +13,13 @@ public class Admin {
     private String username;
     @Column(nullable = false)
     private String password;
-    @OneToMany( mappedBy = "ServiceProvider", cascade = CascadeType.ALL)
-    List<ServiceProvider> serviceProviderList;
+    @OneToMany( mappedBy = "Admin", cascade = CascadeType.ALL)
+    private List<ServiceProvider> serviceProviderList;
 
+
+    public Admin(){
+
+    }
     public Integer getId() {
         return id;
     }

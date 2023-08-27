@@ -9,10 +9,10 @@ public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String companyName;
+    private String countryName;
     private String codes;
 
-    @OneToOne(mappedBy = "User",cascade = CascadeType.ALL)
+    @OneToOne
     User user;
 
     @ManyToOne
@@ -27,12 +27,12 @@ public class Country {
         this.id = id;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
     public String getCodes() {

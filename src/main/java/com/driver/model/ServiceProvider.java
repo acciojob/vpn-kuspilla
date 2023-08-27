@@ -13,7 +13,7 @@ public class ServiceProvider {
     @Column(nullable = false,unique = true)
     private String name ;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "admin")
     Admin admin;
 
@@ -26,6 +26,9 @@ public class ServiceProvider {
     @OneToMany(mappedBy = "ServiceProvider", cascade = CascadeType.ALL)
     List<Country> countryList;
 
+    public ServiceProvider(){
+
+    }
     public Integer getId() {
         return id;
     }

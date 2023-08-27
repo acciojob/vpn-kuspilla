@@ -16,6 +16,9 @@ public class Connection {
     @JoinColumn (name = "serviceProvider")
     ServiceProvider serviceProvider;
 
+    public Connection(){
+
+    }
     public Integer getId() {
         return id;
     }

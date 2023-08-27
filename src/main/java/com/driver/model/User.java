@@ -4,44 +4,45 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String userName;
+    private int id;
+
+    private String username;
     private String password;
     private String originalIp;
     private String maskedIp;
-    private boolean connected;
-
-    @OneToMany(mappedBy = "User",cascade = CascadeType.ALL)
+    private Boolean connected;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Connection> connectionList;
 
     @ManyToMany
-    @JoinColumn(name = "serviceProvider")
+    @JoinColumn
     private List<ServiceProvider> serviceProviderList;
 
-    @OneToOne(mappedBy = "User",cascade = CascadeType.ALL)
-    private Country country;
-     public User(){
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Country originalCountry;
 
-     }
-    public Integer getId() {
+
+    public User() {
+    }
+
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -68,11 +69,11 @@ public class User {
         this.maskedIp = maskedIp;
     }
 
-    public boolean isConnected() {
+    public Boolean getConnected() {
         return connected;
     }
 
-    public void setConnected(boolean connected) {
+    public void setConnected(Boolean connected) {
         this.connected = connected;
     }
 
@@ -92,11 +93,11 @@ public class User {
         this.serviceProviderList = serviceProviderList;
     }
 
-    public Country getCountry() {
-        return country;
+    public Country getOriginalCountry() {
+        return originalCountry;
     }
 
-    public void setCountry(Country country) {
-        this.country = country;
+    public void setOriginalCountry(Country originalCountry) {
+        this.originalCountry = originalCountry;
     }
 }

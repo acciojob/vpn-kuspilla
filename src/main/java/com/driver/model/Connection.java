@@ -2,30 +2,29 @@ package com.driver.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table
-public class Connection {
 
+@Entity
+public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "user")
-    User user;
+    @JoinColumn
+    private User user;
 
+    @JoinColumn
     @ManyToOne
-    @JoinColumn (name = "serviceProvider")
-    ServiceProvider serviceProvider;
+    private ServiceProvider serviceProvider;
 
-    public Connection(){
-
+    public Connection() {
     }
-    public Integer getId() {
+
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

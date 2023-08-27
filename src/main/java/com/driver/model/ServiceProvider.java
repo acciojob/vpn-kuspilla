@@ -3,6 +3,7 @@ package com.driver.model;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
 @Table
 public class ServiceProvider {
 
